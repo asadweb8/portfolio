@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="description" content="A clear view of matters, clients, deadlines, and billing for your law firm." />
+    <title>Morrow &amp; Finch | Practice Management</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6" height="6" rx="1"/><rect x="14.5" y="3.5" width="6" height="6" rx="1"/><rect x="3.5" y="14.5" width="6" height="6" rx="1"/><rect x="14.5" y="14.5" width="6" height="6" rx="1"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18m-11 0v2h4v-2"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2m6-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10 10v-2a4 4 0 0 0-3-3.87m-1-11.9a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18m-13 4h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 3v18l3-2 4 2 4-2 3 2V3l-3 2-4-2-4 2-3-2Z"/><path d="M9 9h6m-6 4h6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    </svg>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#overview" aria-label="Morrow and Finch home">
+          <span class="brand-mark">M<span>&amp;</span>F</span>
+          <span class="brand-copy"><strong>MORROW <span>&amp;</span> FINCH</strong><small>COUNSEL &amp; ADVOCATES</small></span>
+        </a>
+
+        <div class="workspace-switcher">
+          <span class="workspace-monogram">MF</span>
+          <span class="workspace-copy"><strong>Firm workspace</strong><small>Professional plan</small></span>
+          <svg class="icon"><use href="#i-chevron" /></svg>
+        </div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a class="nav-link is-active" href="#overview" data-view-link="overview" aria-current="page"><svg class="icon"><use href="#i-grid" /></svg><span>Overview</span></a>
+          <a class="nav-link" href="#matters" data-view-link="matters"><svg class="icon"><use href="#i-briefcase" /></svg><span>Matters</span><span class="nav-count" id="nav-matter-count">0</span></a>
+          <a class="nav-link" href="#clients" data-view-link="clients"><svg class="icon"><use href="#i-users" /></svg><span>Clients</span></a>
+          <a class="nav-link" href="#calendar" data-view-link="calendar"><svg class="icon"><use href="#i-calendar" /></svg><span>Calendar</span></a>
+          <a class="nav-link" href="#billing" data-view-link="billing"><svg class="icon"><use href="#i-receipt" /></svg><span>Billing</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-note"><span class="note-mark">i</span><span><strong>Demo workspace</strong><small>Sample matter data</small></span></div>
+          <button class="profile-button" type="button" aria-label="Account settings">
+            <span class="avatar avatar-olive">AK</span>
+            <span class="profile-copy"><strong>Alex Kim</strong><small>Firm administrator</small></span>
+            <svg class="icon"><use href="#i-chevron" /></svg>
+          </button>
+        </div>
+      </aside>
+
+      <div class="main-column">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Firm workspace</span><svg class="icon"><use href="#i-chevron" /></svg><strong id="breadcrumb-current">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <svg class="icon"><use href="#i-search" /></svg>
+              <input id="global-search" type="search" placeholder="Search this view..." autocomplete="off" aria-label="Search this view" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications"><svg class="icon"><use href="#i-bell" /></svg><span></span></button>
+            <button class="button button-primary top-new-matter" type="button" data-open-matter><svg class="icon"><use href="#i-plus" /></svg> New matter</button>
+          </div>
+        </header>
+
+        <main class="page-content">
+          <section class="view is-active" id="view-overview" data-view="overview" aria-labelledby="overview-title">
+            <div class="page-heading">
+              <div><p class="eyebrow" id="today-label">FRIDAY, OCTOBER 2, 2026</p><h1 id="overview-title">Practice overview</h1><p class="heading-subtitle">A clear view of what needs your attention.</p></div>
+              <button class="button button-primary heading-new-matter" type="button" data-open-matter><svg class="icon"><use href="#i-plus" /></svg> New matter</button>
+            </div>
+
+            <div class="metric-grid" aria-label="Practice metrics">
+              <article class="metric-card"><div class="metric-top"><span>ACTIVE MATTERS</span><span class="metric-icon icon-green"><svg class="icon"><use href="#i-briefcase" /></svg></span></div><div class="metric-value" id="active-matters">0</div><div class="metric-foot"><span class="metric-positive"><span class="metric-arrow">↗</span> 2 opened this month</span><span>vs. last month</span></div></article>
+              <article class="metric-card"><div class="metric-top"><span>UPCOMING DEADLINES</span><span class="metric-icon icon-peach"><svg class="icon"><use href="#i-calendar" /></svg></span></div><div class="metric-value">04</div><div class="metric-foot"><span class="metric-warning">2 due this week</span><span>next 14 days</span></div></article>
+              <article class="metric-card"><div class="metric-top"><span>HOURS THIS WEEK</span><span class="metric-icon icon-yellow"><svg class="icon"><use href="#i-clock" /></svg></span></div><div class="metric-value">32<span class="metric-unit">h</span> 40<span class="metric-unit">m</span></div><div class="metric-foot"><span class="metric-positive">81% of weekly target</span><span>40h target</span></div></article>
+              <article class="metric-card"><div class="metric-top"><span>OUTSTANDING</span><span class="metric-icon icon-lavender"><svg class="icon"><use href="#i-receipt" /></svg></span></div><div class="metric-value" id="outstanding-total">$0</div><div class="metric-foot"><span class="metric-warning">2 invoices need attention</span><span>across 4 invoices</span></div></article>
+            </div>
+
+            <div class="dashboard-grid">
+              <section class="content-panel matter-panel" aria-labelledby="recent-matters-title">
+                <div class="panel-heading"><div><p class="section-kicker">YOUR CASELOAD</p><h2 id="recent-matters-title">Recent matters</h2></div><button class="text-link" type="button" data-go-view="matters">All matters <svg class="icon"><use href="#i-arrow" /></svg></button></div>
+                <div class="table-wrap"><table class="data-table"><thead><tr><th>MATTER</th><th>CLIENT</th><th>NEXT DATE</th><th>STATUS</th></tr></thead><tbody class="matter-rows" data-table="overview"></tbody></table></div>
+                <p class="empty-state" id="overview-empty" hidden>No matters match your search.</p>
+              </section>
+
+              <section class="content-panel agenda-panel" aria-labelledby="agenda-title">
+                <div class="panel-heading"><div><p class="section-kicker">ON THE CALENDAR</p><h2 id="agenda-title">Coming up</h2></div><button class="icon-button panel-icon-button" type="button" data-go-view="calendar" aria-label="Open calendar"><svg class="icon"><use href="#i-arrow" /></svg></button></div>
+                <div class="agenda-list">
+                  <article class="agenda-item"><div class="agenda-date"><strong>05</strong><span>OCT</span></div><div class="agenda-copy"><strong>Case management conference</strong><span>Northline Studio v. Crest Supply</span><small><svg class="icon"><use href="#i-clock" /></svg> 9:30 AM <i></i> Dept. 12, Superior Court</small></div></article>
+                  <article class="agenda-item"><div class="agenda-date agenda-date-peach"><strong>06</strong><span>OCT</span></div><div class="agenda-copy"><strong>Client strategy meeting</strong><span>Meridian Health Group</span><small><svg class="icon"><use href="#i-clock" /></svg> 11:00 AM <i></i> Conference room A</small></div></article>
+                  <article class="agenda-item"><div class="agenda-date agenda-date-yellow"><strong>08</strong><span>OCT</span></div><div class="agenda-copy"><strong>Discovery responses due</strong><span>Park v. Alder Property Co.</span><small><svg class="icon"><use href="#i-clock" /></svg> All day <i></i> Filing deadline</small></div></article>
+                </div>
+                <button class="agenda-footer" type="button" data-go-view="calendar">View calendar <svg class="icon"><use href="#i-arrow" /></svg></button>
+              </section>
+
+              <section class="content-panel task-panel" aria-labelledby="tasks-title">
+                <div class="panel-heading"><div><p class="section-kicker">KEEP THINGS MOVING</p><h2 id="tasks-title">Priority tasks</h2></div><span class="task-summary" id="task-summary">0 remaining</span></div>
+                <div class="task-list" id="task-list">
+                  <label class="task-item"><input type="checkbox" /><span class="task-check"><svg class="icon"><use href="#i-check" /></svg></span><span class="task-copy"><strong>Finalize motion to compel</strong><small>Park v. Alder Property Co.</small></span><span class="task-due due-today">Today</span></label>
+                  <label class="task-item"><input type="checkbox" /><span class="task-check"><svg class="icon"><use href="#i-check" /></svg></span><span class="task-copy"><strong>Review revised service agreement</strong><small>Meridian Health Group</small></span><span class="task-due">Oct 05</span></label>
+                  <label class="task-item"><input type="checkbox" /><span class="task-check"><svg class="icon"><use href="#i-check" /></svg></span><span class="task-copy"><strong>Send deposition availability</strong><small>Northline Studio v. Crest Supply</small></span><span class="task-due">Oct 06</span></label>
+                  <label class="task-item"><input type="checkbox" /><span class="task-check"><svg class="icon"><use href="#i-check" /></svg></span><span class="task-copy"><strong>Prepare initial disclosures</strong><small>Reyes Estate Planning</small></span><span class="task-due">Oct 09</span></label>
+                </div>
+              </section>
+
+              <section class="content-panel activity-panel" aria-labelledby="activity-title">
+                <div class="panel-heading"><div><p class="section-kicker">LATEST UPDATES</p><h2 id="activity-title">Firm activity</h2></div><span class="activity-live"><span></span> LIVE</span></div>
+                <div class="activity-list">
+                  <article class="activity-item"><span class="activity-avatar avatar-peach">JL</span><div><p><strong>Jordan Lee</strong> added a note to <b>Meridian Health Group</b></p><small>12 minutes ago</small></div></article>
+                  <article class="activity-item"><span class="activity-avatar avatar-green">AK</span><div><p><strong>Alex Kim</strong> logged 1.4 hours to <b>Northline Studio</b></p><small>48 minutes ago</small></div></article>
+                  <article class="activity-item"><span class="activity-avatar avatar-yellow">SR</span><div><p><strong>Sam Rivera</strong> uploaded a document to <b>Park v. Alder Property Co.</b></p><small>Yesterday at 4:18 PM</small></div></article>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section class="view" id="view-matters" data-view="matters" aria-labelledby="matters-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow">CASELOAD</p><h1 id="matters-title">Matters</h1><p class="heading-subtitle">Track active work, key dates, and case status.</p></div><button class="button button-primary" type="button" data-open-matter><svg class="icon"><use href="#i-plus" /></svg> New matter</button></div>
+            <div class="view-toolbar"><div class="view-count"><strong id="matter-view-count">0</strong> matters</div><label class="select-wrap"><span class="visually-hidden">Filter matters by status</span><select id="matter-status-filter"><option value="all">All statuses</option><option value="Active">Active</option><option value="In review">In review</option><option value="Awaiting client">Awaiting client</option><option value="Closed">Closed</option></select><svg class="icon"><use href="#i-chevron" /></svg></label></div>
+            <section class="content-panel full-table-panel"><div class="table-wrap"><table class="data-table matters-table"><thead><tr><th>MATTER</th><th>CLIENT</th><th>TYPE</th><th>LEAD COUNSEL</th><th>NEXT DATE</th><th>STATUS</th></tr></thead><tbody class="matter-rows" data-table="matters"></tbody></table></div><p class="empty-state" id="matters-empty" hidden>No matters match these filters.</p></section>
+          </section>
+
+          <section class="view" id="view-clients" data-view="clients" aria-labelledby="clients-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow">RELATIONSHIPS</p><h1 id="clients-title">Clients</h1><p class="heading-subtitle">The people and organizations behind your work.</p></div><span class="client-total"><strong>06</strong> clients</span></div>
+            <section class="content-panel full-table-panel"><div class="table-wrap"><table class="data-table clients-table"><thead><tr><th>CLIENT</th><th>CONTACT</th><th>OPEN MATTERS</th><th>CLIENT SINCE</th><th>TYPE</th></tr></thead><tbody>
+              <tr class="searchable"><td><span class="client-cell"><span class="avatar avatar-peach">NH</span><span><strong>Northline Studio</strong><small>Portland, OR</small></span></span></td><td>Naomi Hart<small>naomi@northlinestudio.example</small></td><td>2 matters</td><td>Jan 2024</td><td><span class="client-type">Business</span></td></tr>
+              <tr class="searchable"><td><span class="client-cell"><span class="avatar avatar-green">MH</span><span><strong>Meridian Health Group</strong><small>Seattle, WA</small></span></span></td><td>Marcus Hill<small>marcus@meridianhealth.example</small></td><td>1 matter</td><td>Mar 2023</td><td><span class="client-type">Business</span></td></tr>
+              <tr class="searchable"><td><span class="client-cell"><span class="avatar avatar-yellow">AP</span><span><strong>Alder Property Co.</strong><small>Portland, OR</small></span></span></td><td>Devon Price<small>devon@alderproperty.example</small></td><td>1 matter</td><td>Aug 2025</td><td><span class="client-type">Business</span></td></tr>
+              <tr class="searchable"><td><span class="client-cell"><span class="avatar avatar-blue">ER</span><span><strong>Elena Reyes</strong><small>Vancouver, WA</small></span></span></td><td>Elena Reyes<small>elena.reyes@example.net</small></td><td>1 matter</td><td>Feb 2026</td><td><span class="client-type individual">Individual</span></td></tr>
+              <tr class="searchable"><td><span class="client-cell"><span class="avatar avatar-lilac">FC</span><span><strong>Fieldstone Coffee Roasters</strong><small>Salem, OR</small></span></span></td><td>Priya Shah<small>priya@fieldstonecoffee.example</small></td><td>1 matter</td><td>Jun 2024</td><td><span class="client-type">Business</span></td></tr>
+              <tr class="searchable"><td><span class="client-cell"><span class="avatar avatar-gray">JM</span><span><strong>Jonah Miller</strong><small>Beaverton, OR</small></span></span></td><td>Jonah Miller<small>jonah.miller@example.net</small></td><td>1 matter</td><td>Sep 2026</td><td><span class="client-type individual">Individual</span></td></tr>
+            </tbody></table></div><p class="empty-state" id="clients-empty" hidden>No clients match your search.</p></section>
+          </section>
+
+          <section class="view" id="view-calendar" data-view="calendar" aria-labelledby="calendar-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow">DEADLINES &amp; APPEARANCES</p><h1 id="calendar-title">Calendar</h1><p class="heading-subtitle">A look ahead at the dates that move your matters forward.</p></div><div class="calendar-month"><button class="icon-button" type="button" aria-label="Previous month" disabled>‹</button><strong>October 2026</strong><button class="icon-button" type="button" aria-label="Next month" disabled>›</button></div></div>
+            <div class="calendar-layout"><section class="content-panel calendar-agenda"><div class="panel-heading"><div><p class="section-kicker">WEEK OF OCTOBER 5</p><h2>Upcoming events</h2></div><span class="calendar-event-count">5 EVENTS</span></div>
+              <article class="calendar-entry"><div class="calendar-entry-date"><strong>MON</strong><span>05</span></div><div class="calendar-entry-content"><span class="event-type court-event">COURT</span><h3>Case management conference</h3><p>Northline Studio v. Crest Supply</p><small>9:30 AM – 10:15 AM <i></i> Multnomah County Circuit Court, Dept. 12</small></div></article>
+              <article class="calendar-entry"><div class="calendar-entry-date"><strong>TUE</strong><span>06</span></div><div class="calendar-entry-content"><span class="event-type meeting-event">MEETING</span><h3>Client strategy meeting</h3><p>Meridian Health Group</p><small>11:00 AM – 12:00 PM <i></i> Conference room A</small></div></article>
+              <article class="calendar-entry"><div class="calendar-entry-date"><strong>WED</strong><span>07</span></div><div class="calendar-entry-content"><span class="event-type deadline-event">DEADLINE</span><h3>Expert witness disclosures</h3><p>Park v. Alder Property Co.</p><small>Due by 5:00 PM <i></i> Court filing</small></div></article>
+              <article class="calendar-entry"><div class="calendar-entry-date"><strong>THU</strong><span>08</span></div><div class="calendar-entry-content"><span class="event-type deadline-event">DEADLINE</span><h3>Discovery responses due</h3><p>Park v. Alder Property Co.</p><small>Due by 5:00 PM <i></i> Serve opposing counsel</small></div></article>
+              <article class="calendar-entry"><div class="calendar-entry-date"><strong>FRI</strong><span>09</span></div><div class="calendar-entry-content"><span class="event-type meeting-event">MEETING</span><h3>Estate plan review</h3><p>Elena Reyes</p><small>2:00 PM – 3:00 PM <i></i> Video conference</small></div></article>
+            </section><aside class="calendar-aside"><section class="content-panel calendar-note"><span class="calendar-note-mark"><svg class="icon"><use href="#i-calendar" /></svg></span><p class="section-kicker">THIS WEEK</p><strong>5 important dates</strong><p>3 deadlines and 2 client or court meetings are on the schedule.</p><div class="calendar-note-rule"></div><span class="calendar-note-foot"><span class="status-dot"></span> All times Pacific</span></section><section class="content-panel calendar-legend"><h2>Event types</h2><p><span class="legend-dot court-dot"></span> Court appearance</p><p><span class="legend-dot deadline-dot"></span> Filing deadline</p><p><span class="legend-dot meeting-dot"></span> Client meeting</p></section></aside></div>
+          </section>
+
+          <section class="view" id="view-billing" data-view="billing" aria-labelledby="billing-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow">FINANCIALS</p><h1 id="billing-title">Billing</h1><p class="heading-subtitle">Keep an eye on time, invoices, and what’s outstanding.</p></div><button class="button button-outline" type="button" id="billing-export"><svg class="icon"><use href="#i-arrow" /></svg> Export report</button></div>
+            <div class="billing-metrics"><article class="billing-metric"><span>OUTSTANDING</span><strong id="billing-outstanding">$0</strong><small>Across unpaid invoices</small></article><article class="billing-metric"><span>COLLECTED THIS MONTH</span><strong>$18,450</strong><small><b>↑ 12%</b> from last month</small></article><article class="billing-metric"><span>UNBILLED TIME</span><strong>$6,280</strong><small>42.5 hours not yet invoiced</small></article></div>
+            <section class="content-panel full-table-panel invoice-panel"><div class="panel-heading invoice-heading"><div><p class="section-kicker">ACCOUNTS RECEIVABLE</p><h2>Recent invoices</h2></div><div class="invoice-legend"><span><i class="legend-dot paid-dot"></i> Paid</span><span><i class="legend-dot open-dot"></i> Due</span></div></div><div class="table-wrap"><table class="data-table invoice-table"><thead><tr><th>INVOICE</th><th>CLIENT</th><th>ISSUED</th><th>DUE DATE</th><th>AMOUNT</th><th>STATUS</th><th></th></tr></thead><tbody>
+              <tr class="invoice-row"><td><strong>INV-2026-084</strong></td><td>Northline Studio</td><td>Sep 18, 2026</td><td>Oct 18, 2026</td><td class="invoice-amount" data-amount="4200">$4,200.00</td><td><span class="status status-paid">Paid</span></td><td><span class="paid-label">Received</span></td></tr>
+              <tr class="invoice-row"><td><strong>INV-2026-083</strong></td><td>Meridian Health Group</td><td>Sep 15, 2026</td><td>Oct 15, 2026</td><td class="invoice-amount" data-amount="6850">$6,850.00</td><td><span class="status status-review">Due soon</span></td><td><button class="mark-paid" type="button">Mark paid</button></td></tr>
+              <tr class="invoice-row"><td><strong>INV-2026-081</strong></td><td>Alder Property Co.</td><td>Aug 28, 2026</td><td>Sep 27, 2026</td><td class="invoice-amount" data-amount="3200">$3,200.00</td><td><span class="status status-overdue">Overdue</span></td><td><button class="mark-paid" type="button">Mark paid</button></td></tr>
+              <tr class="invoice-row"><td><strong>INV-2026-079</strong></td><td>Fieldstone Coffee Roasters</td><td>Aug 20, 2026</td><td>Sep 19, 2026</td><td class="invoice-amount" data-amount="2750">$2,750.00</td><td><span class="status status-paid">Paid</span></td><td><span class="paid-label">Received</span></td></tr>
+            </tbody></table></div><p class="export-note" id="export-note" aria-live="polite"></p></section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog class="matter-dialog" id="matter-dialog" aria-labelledby="dialog-title">
+      <form id="matter-form" method="dialog">
+        <div class="dialog-heading"><div><p class="section-kicker">CASELOAD</p><h2 id="dialog-title">Open a new matter</h2></div><button class="icon-button dialog-close" type="button" aria-label="Close dialog"><svg class="icon"><use href="#i-close" /></svg></button></div>
+        <p class="dialog-intro">Add the essentials now. You can fill in the rest of the file later.</p>
+        <label class="form-field">Matter name<input name="matterName" required maxlength="100" placeholder="e.g. Smith v. Acme Corporation" /></label>
+        <div class="form-row"><label class="form-field">Client<input name="client" required maxlength="80" placeholder="Client or organization" /></label><label class="form-field">Matter type<select name="type" required><option value="">Select type</option><option>Business litigation</option><option>Commercial contracts</option><option>Employment</option><option>Estate planning</option><option>Real estate</option><option>Other</option></select></label></div>
+        <div class="form-row"><label class="form-field">Lead counsel<select name="lead" required><option>Alex Kim</option><option>Jordan Lee</option><option>Sam Rivera</option></select></label><label class="form-field">Next key date<input name="date" type="date" /></label></div>
+        <div class="dialog-actions"><button class="button button-outline dialog-cancel" type="button">Cancel</button><button class="button button-primary" type="submit"><svg class="icon"><use href="#i-plus" /></svg> Create matter</button></div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-check"><svg class="icon"><use href="#i-check" /></svg></span><span id="toast-message">Done</span></div>
+  </body>
+</html>
